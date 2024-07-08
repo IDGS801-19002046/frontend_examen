@@ -1,0 +1,43 @@
+<br>
+<div class="container">
+  <input type="search" placeholder="Buscar" id="search" (input)="searchChange($event)"/>
+  <i class="fa-solid fa-magnifying-glass"></i>
+</div>
+<br>
+<div class="container">
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Cascos" (change)="filterProductsCategory($event)">
+        <label class="form-check-label" for="inlineRadio1">Cascos</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="guantes" (change)="filterProductsCategory($event)">
+        <label class="form-check-label" for="inlineRadio2">Guantes</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="accesorios" (change)="filterProductsCategory($event)">
+        <label class="form-check-label" for="inlineRadio2">Accesorios</label>
+      </div>
+</div>
+<br>
+<div>
+    <div class="container text-center">
+      <div class="row align-items-start">
+        <div class="col-4" *ngFor="let producto of listaProductos; let i = index">
+          <div class="card">
+              <div class="image_container">
+                <img src="{{producto.imagen}}" alt="">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{producto.nombre}}</h5>
+                <p class="card-description">{{producto.descripcion}}</p>
+                <p class="card-price">Precio:{{producto.precio}}</p>
+                <p class="card-category">Categoría: {{producto.categoria}}</p>
+              </div>
+          </div>
+          <div *ngIf="i % 3 > 0">
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
